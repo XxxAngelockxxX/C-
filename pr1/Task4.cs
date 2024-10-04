@@ -4,13 +4,16 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace pr1
 {
-    internal class Task4: ITaskeable
-    { 
-        private int[] array_X = new int[36];
-        public int MInput() { 
+    internal class Task4 : ITaskeable
+    {
+        private int[] arrayX = new int[36];
+        private int[] arrayY = new int[36];
+        public int MInput()
+        {
             int M;
             Console.WriteLine("Input your number");
             M = int.Parse(Console.ReadLine());
@@ -19,56 +22,48 @@ namespace pr1
         }
         public int Inicalisetion_X(int M)
         {
-             int not_come = 0;
-            for (int i = 0; i < array_X.Length; i++)
+            int not_come = 0;
+            for (int i = 0; i < arrayX.Length; i++)
             {
-                Console.WriteLine("Input " + (i+1) + " element ");
-                array_X[i] = int.Parse(Console.ReadLine());
-                if (array_X[i] == 0 || Math.Abs(array_X[i]) < M)
+                Console.WriteLine("Input " + (i + 1) + " element ");
+                arrayX[i] = int.Parse(Console.ReadLine());
+                if (arrayX[i] == 0 || Math.Abs(arrayX[i]) < M)
                 {
                     not_come++;
                 }
             }
             return not_come;
         }
-        public void Output_array_X() 
+        public void InicalisetionY(int not_come, int M)
         {
-             Console.WriteLine(" Your Array X: ");
-            for (int i = 0; i < array_X.Length; i++)
-            {
-                Console.Write(array_X[i] + ", ");
-            }
-            Console.WriteLine();
-        }
-        public void Inicalisetion_and_output_Y(int not_come , int M)
-        {            
-            int[] array_Y = new int[36-not_come];
+            int[] array_Y = new int[36 - not_come];
             int vel = 0;
-            for (int i = 0; i < array_X.Length;i++)
+            for (int i = 0; i < arrayX.Length; i++)
             {
-                if (array_X[i] != 0 || Math.Abs(array_X[i]) > M)
+                if (arrayX[i] != 0 || Math.Abs(arrayX[i]) > M)
                 {
-                    array_Y[vel] = array_X[i];
+                    array_Y[vel] = arrayX[i];
                     vel++;
                 }
             }
-             
-            Console.WriteLine(" Your Array Y: ");
-            for (int i = 0; i < array_Y.Length; i++)
-            {
-                Console.Write(array_Y[i] + ", ");
-            }
-
         }
-        
+        public void Output_array(int[] array)
+        {
+            Console.WriteLine(" Your Array : ");
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write(array[i] + ", ");
+            }
+        }
         public void StartTask()
         {
             int M = MInput();
             int not = Inicalisetion_X(M);
-            Output_array_X();
-            Inicalisetion_and_output_Y(not , M);
+            Output_array(arrayX);
+            InicalisetionY(not, M);
+            Output_array(arrayY);
             Console.WriteLine(" Your M: " + M);
-           
+
         }
     }
 }

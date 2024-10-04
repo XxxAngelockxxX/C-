@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace pr1
 {
-     class Task2 : ITaskeable
+    class Task2 : ITaskeable
     {
         private int[] trengle = new int[3];
         public void Inicelisation()
@@ -24,13 +24,18 @@ namespace pr1
 
             }
         }
-        public void Check()
+        public bool Check()
         {
 
             if (trengle[1] <= 0 || trengle[0] <= 0 || trengle[2] <= 0)
             {
-                Console.WriteLine("Incorrect size");
+                return false;
             }
+            else
+            {
+                return true;
+            }
+
         }
         public void Typ_of_trengle()
         {
@@ -70,9 +75,13 @@ namespace pr1
         {
             Inicelisation();
             Check();
-            Typ_of_trengle();
-            Perimetr();
-            Plosha();
+            if (Check())
+            {
+                Typ_of_trengle();
+                Perimetr();
+                Plosha();
+            }
+
         }
     }
 }

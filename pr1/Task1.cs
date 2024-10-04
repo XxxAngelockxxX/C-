@@ -8,27 +8,30 @@ namespace pr1
 {
     class Task1 : ITaskeable
     {
-        private int[] your_nums = new int[3];
-        public void Inicelisation_chek() {
-            
-            for (int i = 0; i < your_nums.Length; i++)
+        private int[] yourNums = new int[3];
+        public void InicelisationChek()
+        {
+
+            for (int i = 0; i < yourNums.Length; i++)
             {
                 Console.WriteLine("input " + (i + 1) + " Storonu");
-                your_nums[i] = int.Parse(Console.ReadLine());
-                if (your_nums[i] > 26 && your_nums[i] <1)
+                yourNums[i] = int.Parse(Console.ReadLine());
+            }
+        }
+        public void Check()
+        {
+            for (int i = 0; i < yourNums.Length; i++)
+            {
+                if (yourNums[i] < 26 && yourNums[i] > 1)
                 {
-                    Console.WriteLine("Incorrect num");
-                }
-                else
-                {
-                    Console.WriteLine(your_nums[i]);
+                    Console.WriteLine(yourNums[i]);
                 }
             }
         }
         public void StartTask()
         {
-            Inicelisation_chek();
-             
+            InicelisationChek();
+            Check();
         }
     }
 }

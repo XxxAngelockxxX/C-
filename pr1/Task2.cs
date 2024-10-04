@@ -26,16 +26,7 @@ namespace pr1
         }
         public bool Check()
         {
-
-            if (trengle[1] <= 0 || trengle[0] <= 0 || trengle[2] <= 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-
+            return trengle[1] <= 0 || trengle[0] <= 0 || trengle[2] <= 0;
         }
         public void Typ_of_trengle()
         {
@@ -74,7 +65,6 @@ namespace pr1
         public void StartTask()
         {
             Inicelisation();
-            Check();
             if (Check())
             {
                 Typ_of_trengle();

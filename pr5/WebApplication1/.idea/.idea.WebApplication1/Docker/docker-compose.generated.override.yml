@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  dockertestapi:
+    build:
+      context: "E:\\щшнгпщ\\WebApplication1"
+      dockerfile: "WebApplication1/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app-1/bin/Debug/net8.0/WebApplication1.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "webapplication1:dev"
+    ports: []
+    volumes:
+    - "E:\\щшнгпщ\\WebApplication1\\WebApplication1:/app-1:rw"
+    - "E:\\щшнгпщ\\WebApplication1:/src:rw"
+    - "C:\\Users\\anton\\.nuget\\packages:/home/app/.nuget/packages"
+    working_dir: "/app-1"
